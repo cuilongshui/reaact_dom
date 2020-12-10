@@ -18,7 +18,7 @@ class ListItem extends Component {
   }
 
   manageCount() {
-    return count + '个'
+    return count + '个a'
   }
 
 
