@@ -1,0 +1,8 @@
+{
+    "svn.ignoreMissingSvnWarning": true,
+    "emmet.preferences": {},
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "editor.tabSize": 2,
+}
