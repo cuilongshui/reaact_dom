@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 const listData = [
   {
     id: 1,
-    title: "sony 65寸高清电视",
+    title: "sony 65寸高清电视666666",
     price: 4000,
   },
   {

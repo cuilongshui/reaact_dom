@@ -1,10 +1,17 @@
+/*
+ * @Author: cui
+ * @Date: 2020-12-10 22:12:38
+ * @LastEditors: cui
+ * @LastEditTime: 2020-12-11 00:38:45
+ * @Description: 
+ */
 import React from "react";
 import ListItem from "./components/listItem";
 
 const listData = [
   {
     id: 1,
-    title: "sony 65寸高清电视",
+    title: "sony 65寸高清电视11111",
     prize: 4000,
   },
   {
