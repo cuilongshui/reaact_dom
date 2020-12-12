@@ -1,7 +1,7 @@
 import "./App.css";
 import ListItem from "./components/listItem";
 import React, { Component } from 'react';
-// import ListItem from './components/listItemFunc'
+
 
 const listData = [
   {
@@ -27,8 +27,12 @@ class App extends Component {
     //   return <div className='text-center'>购物车是空的</div>
     // }
     return listData.map(item => {
-      return <ListItem key={item.id} data={item} />
+      return <ListItem key={item.id} data={item} onDelete={this.handleDelete} />
     })
+  }
+
+  handleDelete = (id) => {
+    console.log(id)
   }
 
   render() {
