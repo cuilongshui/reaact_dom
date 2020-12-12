@@ -117,6 +117,13 @@ samples, guidance on mobile development, and a full API reference.
 
 
 
+### vscode  操作git
+
+#### 创建分支  
+>  按住 shift + ctrl +p  输入 Create Branch [name]
+
+#### 发布分支
+>按住 shift + ctrl +p  publish Branch
 
 
 
@@ -124,4 +131,9 @@ samples, guidance on mobile development, and a full API reference.
 
 
 
-#
+
+
+
+
+
+
