@@ -119,6 +119,9 @@ samples, guidance on mobile development, and a full API reference.
 
 ### vscode  操作git
 
+####  添加远程
+> git remote add origin [项目地址] 
+
 #### 创建分支  
 >  按住 shift + ctrl +p  输入 Create Branch [name]
 
