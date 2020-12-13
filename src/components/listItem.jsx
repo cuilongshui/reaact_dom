@@ -10,25 +10,29 @@ let count = 0;
 class ListItem extends Component {
   constructor(props) {
     super(props);
-    //   给函数添加this绑定
-    // this.handelDecrease = this.handelDecrease.bind(this);
+    this.state = {
+      count: 0,
+    };
   }
 
   doSomethingWithCount() {
-    if (count < 0) {
-      count = 0;
+    if (this.state.count < 0) {
+      this.setState({
+        count: 0,
+      });
     }
   }
 
   handelDecrease = (id) => {
-    count--;
-    console.log("id:" + id);
-    this.doSomethingWithCount();
+    this.setState({
+      count: this.state.count - 1,
+    });
   };
 
   handelIncrease = () => {
-    count++;
-    console.log(count);
+    this.setState({
+      count: this.state.count + 1,
+    });
   };
 
   render() {
@@ -48,29 +52,14 @@ class ListItem extends Component {
         </div>
         <div className={`col-2 themed-grid-col ${_cn}`}>
           {/* //   给函数添加this绑定 */}
-          {/* <button
-            onClick={this.handelDecrease.bind(this,this.props.data.id)}
+          <button
+            onClick={this.handelDecrease.bind(this, this.props.data.id)}
             type="button"
             className="btn btn-primary"
           >
             -
-          </button> */}
-          {/* //   给函数添加this绑定 */}
-          {/* <button
-            onClick={this.handelDecrease}
-            type="button"
-            className="btn btn-primary"
-          >
-            -
-          </button> */}
-          {/* <button
-            onClick={this.handelDecrease}
-            type="button"
-            className="btn btn-primary"
-          >
-            -
-          </button> */}
-          <span className={cls("digital")}>{count}</span>
+          </button>
+          <span className={cls("digital")}>{this.state.count}</span>
           <button
             onClick={this.handelIncrease}
             type="button"
@@ -80,7 +69,14 @@ class ListItem extends Component {
           </button>
         </div>
         <div className="col-1 themed-grid-col">
-          <button onClick={()=>{this.props.onDelete(this.props.data.id)}} className='btn btn-danger btn-sm'>删除</button>
+          <button
+            onClick={() => {
+              this.props.onDelete(this.props.data.id);
+            }}
+            className="btn btn-danger btn-sm"
+          >
+            删除
+          </button>
         </div>
       </div>
     );
