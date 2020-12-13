@@ -4,9 +4,6 @@ import classnames from "classnames/bind";
 import cn from "classnames";
 
 const cls = classnames.bind(style);
-
-let count = 0;
-
 class ListItem extends Component {
   constructor(props) {
     super(props);
@@ -26,6 +23,8 @@ class ListItem extends Component {
   handelDecrease = (id) => {
     this.setState({
       count: this.state.count - 1,
+    }, () => {
+        
     });
   };
 
