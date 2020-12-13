@@ -1,12 +1,3 @@
-/*
- * @Author: cui
- * @Date: 2020-12-09 20:45:07
- * @LastEditors: cui
- * @LastEditTime: 2020-12-12 22:40:16
- * @Description:
- */
-
-//  6666666
 import React, { Component } from "react";
 import style from "./listItem.module.css";
 import classnames from "classnames/bind";
@@ -18,7 +9,7 @@ let count = 0;
 
 class ListItem extends Component {
   constructor(props) {
-    super();
+    super(props);
     //   给函数添加this绑定
     // this.handelDecrease = this.handelDecrease.bind(this);
   }

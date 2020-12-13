@@ -1,3 +1,10 @@
+/*
+ * @Author: cui
+ * @Date: 2020-12-04 23:02:56
+ * @LastEditors: cui
+ * @LastEditTime: 2020-12-13 10:05:03
+ * @Description: 
+ */
 import "./App.css";
 import ListItem from "./components/listItem";
 import React, { Component } from 'react';
@@ -23,30 +30,23 @@ const listData = [
 
 class App extends Component {
   randerList() {
-    // if (!listData.length) {
-    //   return <div className='text-center'>购物车是空的</div>
-    // }
     return listData.map(item => {
       return <ListItem key={item.id} data={item} onDelete={this.handleDelete} />
     })
   }
 
   handleDelete = (id) => {
-    console.log(id)
+    console.log('id:',id)
   }
 
   render() {
 
     return (
-      //  <React.Fragments></React.Fragments> 
-      // 包含子元素无需生成多余的子节点  简写为---->  <></>
-      <>
-        <div className="container">
-          <span className='title'>header</span>
-          {!listData.length && <div className='text-center'>购物车是空的</div>}
-          {this.randerList()}
-        </div>
-      </>
+      <div className="container">
+        <span className='title'>header</span>
+        {!listData.length && <div className='text-center'>购物车是空的</div>}
+        {this.randerList()}
+      </div>
     );
   }
 }
