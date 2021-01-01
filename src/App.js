@@ -2,14 +2,14 @@
  * @Author: cui
  * @Date: 2020-12-04 23:02:56
  * @LastEditors: cui
- * @LastEditTime: 2020-12-13 12:17:44
+ * @LastEditTime: 2021-01-01 11:29:38
  * @Description: 
  */
 import "./App.css";
 import ListItem from "./components/listItem";
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-class App extends Component {
+class App extends PureComponent {
   constructor(props) {
     super(props)
 
@@ -44,18 +44,27 @@ class App extends Component {
 
   handleDelete = (id) => {
     const listData = this.state.listData.filter(item => item.id !== id);
-    this.setState((state,props)=>{
-        return{
-            listData
-        }
+    this.setState((state, props) => {
+      return {
+        listData
+      }
+    })
+  }
+
+  handleAmount = () => {
+    const _list = this.state.listData.concat([]);
+
+    _list.pop();
+
+    this.setState({
+      listData:_list
     })
   }
 
   render() {
-
     return (
       <div className="container">
-        <span className='title'>header</span>
+        <button style={{margin:'20px'}}  onClick={ this.handleAmount} className='btn btn-primary'>减一个</button>
         {!this.state.listData.length && <div className='text-center'>购物车是空的</div>}
         {this.randerList()}
       </div>

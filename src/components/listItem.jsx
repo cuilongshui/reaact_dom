@@ -34,17 +34,6 @@ class ListItem extends PureComponent {
       count: this.state.count + 1,
     });
   };
-  //重新渲染reader方法执行前  避免不必要的渲染
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   console.log("props", this.props, nextProps);
-  //   console.log("state", this.state, nextState);
-
-  //   if (this.state.count === nextState.count) return false;
-  //   return true;
-  // }
-
-
-
 
   render() {
     console.log("listItem rendering");
