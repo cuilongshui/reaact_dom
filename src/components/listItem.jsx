@@ -5,40 +5,10 @@ import cn from "classnames";
 
 const cls = classnames.bind(style);
 class ListItem extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      count: 0,
-    };
-  }
-
-  doSomethingWithCount() {
-    if (this.state.count < 0) {
-      this.setState({
-        count: 0,
-      });
-    }
-  }
-
-  handelDecrease = (id) => {
-    this.setState(
-      {
-        count: this.state.count - 1,
-      },
-      () => {}
-    );
-  };
-
-  handelIncrease = () => {
-    this.setState({
-      count: this.state.count + 1,
-    });
-  };
-
   render() {
     console.log("listItem rendering");
     const _cn = cn({
-      "themed-grid-col-s": !this.state.count,
+      "themed-grid-col-s": !this.props.data.value,
     });
 
     return (
@@ -54,15 +24,19 @@ class ListItem extends PureComponent {
         <div className={`col-2 themed-grid-col ${_cn}`}>
           {/* //   给函数添加this绑定 */}
           <button
-            onClick={this.handelDecrease.bind(this, this.props.data.id)}
+            onClick={() => {
+              this.props.onDecrease(this.props.data.id);
+            }}
             type="button"
             className="btn btn-primary"
           >
             -
           </button>
-          <span className={cls("digital")}>{this.state.count}</span>
+          <span className={cls("digital")}>{this.props.data.value}</span>
           <button
-            onClick={this.handelIncrease}
+            onClick={() => {
+              this.props.onIncrease(this.props.data.id);
+            }}
             type="button"
             className="btn btn-primary"
           >
@@ -70,7 +44,7 @@ class ListItem extends PureComponent {
           </button>
         </div>
         <div className="col-2 themed-grid-col ">
-          ￥ {this.props.data.price * this.state.count}
+          ￥ {this.props.data.price * this.props.data.value}
         </div>
         <div className="col-1 themed-grid-col">
           <button
