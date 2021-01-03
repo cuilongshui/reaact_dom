@@ -30,7 +30,7 @@ class ListItem extends PureComponent {
             type="button"
             className="btn btn-primary"
           >
-            -
+            - 
           </button>
           <span className={cls("digital")}>{this.props.data.value}</span>
           <button

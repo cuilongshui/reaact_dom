@@ -1,12 +1,6 @@
-/*
- * @Author: cui
- * @Date: 2020-12-04 23:02:56
- * @LastEditors: cui
- * @LastEditTime: 2021-01-03 14:15:14
- * @Description: 
- */
 import "./App.css";
-import ListItem from "./components/listItem";
+import ListPage from "./components/listPage";
+import Navbar from './components/navbar'
 import React, { PureComponent } from 'react';
 
 class App extends PureComponent {
@@ -36,16 +30,6 @@ class App extends PureComponent {
     }
   }
 
-  randerList() {
-    return this.state.listData.map(item => {
-      return <ListItem
-        key={item.id}
-        data={item}
-        onIncrease={this.handelIncrease}
-        onDecrease={this.handelDecrease}
-        onDelete={this.handleDelete} />
-    })
-  }
 
   handleDelete = (id) => {
     const listData = this.state.listData.filter(item => item.id !== id);
@@ -116,12 +100,18 @@ class App extends PureComponent {
 
   render() {
     return (
-      <div className="container">
-        <button style={{ margin: '20px' }}
-          onClick={this.handleReset} className='btn btn-primary'>重置</button>
-        {!this.state.listData.length && <div className='text-center'>购物车是空的</div>}
-        {this.randerList()}
-      </div>
+      <>
+        <Navbar
+          onReset={this.handleReset}
+          total={this.state.listData.length}
+        />
+        <ListPage
+          data={this.state.listData}
+          handelDecrease={this.handelDecrease}
+          handleDelete={this.handleDelete}
+          handelIncrease={this.handelIncrease}
+        />
+      </>
     );
   }
 }
