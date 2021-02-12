@@ -46,7 +46,7 @@ class ListItem extends PureComponent {
         <div className="col-2 themed-grid-col ">
           ￥ {this.props.data.price * this.props.data.value}
         </div>
-        <div className="col-1 themed-grid-col">
+        <div className="col-1 themed-grid-col">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
           <button
             onClick={() => {
               this.props.onDelete(this.props.data.id);
